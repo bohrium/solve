@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 //#define GARBAGE_COLLECTOR 1
+//TODO: implement reference counting for safety mode purposes 
 
 typedef char bool;
 #define true 1
@@ -25,12 +26,14 @@ typedef struct {
 
 void construct_clause(Clause* cptr);
 
+// TODO: maintain sortedness?
 void insert_var(Clause* cptr, Var var);
 
 void destroy_clause(Clause* cptr);
 
 void print_clause(Clause* cptr);
 
+//TODO: implement "Clause" as alias for "VarSet", so that "implies" and "taut" only have those logical interpretations for "Clause"
 bool implies(Clause* lhsptr, Clause* rhsptr);
 
 /* c. formulae in conjunctive normal form */
